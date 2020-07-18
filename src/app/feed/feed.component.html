@@ -1,4 +1,32 @@
-<ul *ngFor="let post of postItems$ | async">
-  <li>{{post.body}}</li>
-</ul>
-<h1>asdasd</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-9">
+      <h2>Most Recent</h2>
+
+      <mat-grid-list gutterSize="2em" [cols]="breakpoint">
+        <mat-grid-tile *ngFor="let post of postItems$ | async">
+          <mat-card>
+            <img mat-card-image class="mat-card-image" src="{{post.photo}}"><img>
+            <mat-card-title>{{post.title}}</mat-card-title>
+            <mat-card-subtitle>{{post.description}}</mat-card-subtitle>
+            <mat-card-actions>
+              <div class="row">
+                <div class="col-sm">{{post.dateOfCreation | date }}</div> |
+                <div class="col-sm">{{post.tag}}</div> |
+                <div class="col-sm">{{post.author.nickName}}</div>
+              </div>
+            </mat-card-actions>
+            <mat-card-footer>
+              <button class="btn btn-outline-info">CONTINUE READING</button>
+            </mat-card-footer>
+          </mat-card>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+
+    </div>
+    <div class="col-3 additional">
+      <h2>Recently Viewed</h2>
+    </div>
+  </div>
+</div>

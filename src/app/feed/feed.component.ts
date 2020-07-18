@@ -13,16 +13,17 @@ import { AppPostState } from '../store/models/app-post-state.interface';
 })
 export class FeedComponent implements OnInit {
 
-  postItems$
-  // : Observable<IPost[]>;
+  postItems$: Observable<IPost[]>;
   loading$: Observable<boolean>;
   error$: Observable<Error>;
+
+  breakpoint: number = 2;
 
   constructor(private store$: Store<AppPostState>) {
   }
 
   ngOnInit(): void {
-    this.postItems$ = this.store$.select(store => store.post.posts)
+    this.postItems$ = this.store$.select(store => store.post.posts);
     this.loading$ = this.store$.select(store => store.post.loading);
     this.error$ = this.store$.select(store => store.post.error);
 

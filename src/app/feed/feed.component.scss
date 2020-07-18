@@ -1,0 +1,63 @@
+.container-fluid {
+  background-color: rgb(236, 236, 241);
+  min-height: 100vh;
+
+    mat-grid-list {
+      margin-top: 5vh;
+      
+      mat-card{
+        margin: 0 0 0 0;
+        display: flex;
+        flex-direction: column;
+        width: 22vw;
+        height: 65vh;
+        background-color: white;
+
+        img.mat-card-image {
+          height: 26vh;
+        }
+
+        mat-card-title {
+          text-align: center;
+          font-weight: bold;
+          font-size: 2.7vh;
+        }
+
+        mat-card-subtitle {
+          text-align: center;
+        }
+
+        mat-card-actions {
+          text-align: center;
+          border-top: 1px dashed black;
+          border-bottom: 1px dashed black;
+        }
+
+        mat-card-footer {
+          display: flex;
+          justify-content: center;
+
+          button {
+            width: 17vw;
+            height: 6vh;
+            font-size: 2vh;
+            background-color: rgb(233, 91, 91);
+            color: white;
+            border-radius: 0;
+            border: none;
+            position: absolute;
+            margin-top: 3vh;
+          }
+        }
+      }
+
+  }
+
+  .additional {
+    background-color: white;
+  }
+
+
+}
+
+
