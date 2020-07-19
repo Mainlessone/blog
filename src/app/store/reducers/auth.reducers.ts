@@ -1,5 +1,5 @@
 import { IAuthState } from "../models/auth.state.interface";
-import { AuthActionTypes } from '../actions/auth.actions';
+import { AuthActionTypes, AuthActions } from '../actions/auth.actions';
 
 
 const initialState: IAuthState = {
@@ -8,7 +8,7 @@ const initialState: IAuthState = {
   error: null,
 }
 
-export const AuthReducer = (state: IAuthState = initialState, action) => {
+export const AuthReducer = (state: IAuthState = initialState, action: AuthActions) => {
   switch (action.type) {
     case AuthActionTypes.LOGIN:
       return { ...state, isAuthenticated: false, error: null };
@@ -21,6 +21,8 @@ export const AuthReducer = (state: IAuthState = initialState, action) => {
       return {
         ...state, isAuthenticated: false, error: action.payload
       };
+    case AuthActionTypes.LOGOUT:
+      return initialState;
     default:
       return state;
   }

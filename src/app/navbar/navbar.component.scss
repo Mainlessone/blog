@@ -9,6 +9,13 @@ nav {
       display: flex;
       justify-content: center;
       align-items: center;
+
+      .self {
+        color: rgb(233, 91, 91);
+      }
+      .blog {
+        color: rgb(122, 118, 118);
+      }
     }
   }
 

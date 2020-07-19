@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/models/app-state.interface';
+import { SignUpAction } from 'src/app/store/actions/signup.actions';
 
 @Component({
   selector: 'app-signup',
@@ -15,13 +18,13 @@ export class SignupComponent implements OnInit {
     confirmPassword: ''
   }
 
-  constructor() { }
+  constructor(private readonly store$: Store<AppState>) { }
 
   ngOnInit(): void {
   }
 
   signUp(): void {
-    console.log(this.signUpDto);
+    if (this.signUpDto.email && this.signUpDto.password) this.store$.dispatch(new SignUpAction(this.signUpDto));
   }
 
 }

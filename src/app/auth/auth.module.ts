@@ -8,6 +8,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthReducer } from '../store/reducers/auth.reducers';
 import { AuthEffects } from '../store/effects/auth.effects';
 import { AppRoutingModule } from '../app-routing.module';
+import { SignUpReducer } from '../store/reducers/signup.reducers';
+import { SignUpEffects } from '../store/effects/signup.effects';
 
 
 @NgModule({
@@ -18,7 +20,7 @@ import { AppRoutingModule } from '../app-routing.module';
     ReactiveFormsModule,
     AppRoutingModule,
     StoreModule.forFeature('auth', AuthReducer),
-    EffectsModule.forFeature([AuthEffects])
+    EffectsModule.forFeature([AuthEffects, SignUpEffects])
   ]
 })
 export class AuthModule { }

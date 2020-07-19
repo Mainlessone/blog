@@ -16,5 +16,8 @@ export class PostEffects {
     ))
   )
 
-  constructor(private actions$: Actions, private postService: PostService) { }
+  constructor(
+    private readonly actions$: Actions,
+    private readonly postService: PostService
+  ) { }
 }

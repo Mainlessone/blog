@@ -18,6 +18,8 @@ import { AuthService } from './services/auth.service';
 import { AuthModule } from './auth/auth.module';
 import { AuthEffects } from './store/effects/auth.effects';
 import { AuthReducer } from './store/reducers/auth.reducers';
+import { SignUpEffects } from './store/effects/signup.effects';
+import { SignUpReducer } from './store/reducers/signup.reducers';
 
 @NgModule({
   declarations: [
@@ -31,8 +33,8 @@ import { AuthReducer } from './store/reducers/auth.reducers';
     FeedModule,
     AppRoutingModule,
     HttpClientModule,
-    EffectsModule.forRoot([PostEffects, AuthEffects]),
-    StoreModule.forRoot({ post: PostReducer, auth: AuthReducer }),
+    EffectsModule.forRoot([PostEffects, AuthEffects, SignUpEffects]),
+    StoreModule.forRoot({ post: PostReducer, auth: AuthReducer, signUp: SignUpReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [PostService, AuthService],

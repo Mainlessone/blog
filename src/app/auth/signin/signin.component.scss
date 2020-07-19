@@ -130,11 +130,15 @@ hr{
   width: 100%;
   display: block;
 
-  z-index: 1;
   position: relative;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.form-signin input[type=button] {
+  box-shadow: 0 1vh 1vh -2px rgba(116, 114, 114, 0.2);
+  z-index: 999;
 }
 
 .form-signin .form-control:focus {

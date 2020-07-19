@@ -13,7 +13,6 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   signIn(signInDto): Observable<any> {
-    console.log(signInDto)
     return this.http.post(`${this.url}/signIn`, signInDto);
   }
 
