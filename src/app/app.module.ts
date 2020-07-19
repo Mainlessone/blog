@@ -16,6 +16,8 @@ import { PostReducer } from './store/reducers/post.reducers';
 import { FeedModule } from './feed/feed.module';
 import { AuthService } from './services/auth.service';
 import { AuthModule } from './auth/auth.module';
+import { AuthEffects } from './store/effects/auth.effects';
+import { AuthReducer } from './store/reducers/auth.reducers';
 
 @NgModule({
   declarations: [
@@ -29,8 +31,8 @@ import { AuthModule } from './auth/auth.module';
     FeedModule,
     AppRoutingModule,
     HttpClientModule,
-    EffectsModule.forRoot([PostEffects]),
-    StoreModule.forRoot({ post: PostReducer }),
+    EffectsModule.forRoot([PostEffects, AuthEffects]),
+    StoreModule.forRoot({ post: PostReducer, auth: AuthReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [PostService, AuthService],

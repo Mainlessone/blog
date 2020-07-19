@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IPost } from './models/post.interface';
-import { Store, select } from '@ngrx/store';
-import { IPostState } from '../store/models/post-state.interface';
+import { Store } from '@ngrx/store';
 import { LoadPostsAction } from '../store/actions/post.actions';
-import { AppPostState } from '../store/models/app-post-state.interface';
+import { AppState } from '../store/models/app-state.interface';
 
 @Component({
   selector: 'app-feed',
@@ -19,7 +18,7 @@ export class FeedComponent implements OnInit {
 
   breakpoint: number = 2;
 
-  constructor(private store$: Store<AppPostState>) {
+  constructor(private store$: Store<AppState>) {
   }
 
   ngOnInit(): void {

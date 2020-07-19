@@ -10,8 +10,8 @@ import { EditComponent } from './create-edit/edit/edit.component';
 const routes: Routes = [
   { path: '', redirectTo: '/feed', pathMatch: 'full' },
   { path: 'feed', component: FeedComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'signin', component: SigninComponent },
+  { path: 'signUp', component: SignupComponent },
+  { path: 'signIn', component: SigninComponent },
   { path: 'create', component: CreateComponent },
   { path: 'edit', component: EditComponent },
   { path: '**', redirectTo: '/feed', pathMatch: 'full' }

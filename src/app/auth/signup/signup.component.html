@@ -1,1 +1,23 @@
-<p>signup works!</p>
+<div class="container-fluid">
+
+  <div class="container">
+    <div id="logbox">
+      <form id="signup" action="/signup" (submit)="signUp()">
+        <h1>Create an account</h1>
+        <input name="name" type="text" placeholder="nickname" pattern="^[\w]{3,16}$" autofocus="autofocus"
+          required="required" class="input pass" [(ngModel)]="signUpDto.nickName" />
+        <input name="email" type="email" placeholder="email" class="input pass" [(ngModel)]="signUpDto.email" />
+        <input name="phone" type="phone" placeholder="phone" class="input pass" [(ngModel)]="signUpDto.phone" />
+        <input name="password" type="password" placeholder="password" required="required" class="input pass"
+          [(ngModel)]="signUpDto.password" />
+        <input name="password2" type="password" placeholder="confirm password" required="required" class="input pass"
+          [(ngModel)]="signUpDto.confirmPassword" />
+        <input type="submit" value="Sign up" class="inputButton" />
+        <div class="text-center">
+          Already have an account? <a class="nav-link" id="login_id" routerLink="/signIn">login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
