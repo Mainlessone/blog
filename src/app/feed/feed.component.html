@@ -3,7 +3,7 @@
     <div class="col-9">
       <h2>Most Recent</h2>
 
-      <mat-grid-list gutterSize="2em" [cols]="breakpoint">
+      <mat-grid-list gutterSize="3em" [cols]="breakpoint">
         <mat-grid-tile *ngFor="let post of postItems$ | async">
           <mat-card>
             <img mat-card-image class="mat-card-image" src="{{post.photo}}"><img>

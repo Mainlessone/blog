@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigninComponent implements OnInit {
 
+  signInDto = {
+    email: '',
+    password: ''
+  }
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  signIn(event) {
+    if (this.signInDto.email && this.signInDto.password) console.log(this.signInDto)
   }
 
 }

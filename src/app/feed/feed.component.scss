@@ -4,7 +4,8 @@
 
     mat-grid-list {
       margin-top: 5vh;
-      
+      margin-bottom: 5vh;
+
       mat-card{
         margin: 0 0 0 0;
         display: flex;
@@ -12,6 +13,8 @@
         width: 22vw;
         height: 65vh;
         background-color: white;
+        box-shadow: 0 1vh 1vh -2px rgba(116, 114, 114, 0.2);
+        z-index: 999;
 
         img.mat-card-image {
           height: 26vh;

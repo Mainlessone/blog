@@ -14,6 +14,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { PostReducer } from './store/reducers/post.reducers';
 import { FeedModule } from './feed/feed.module';
+import { AuthService } from './services/auth.service';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { FeedModule } from './feed/feed.module';
   ],
   imports: [
     BrowserModule,
+    AuthModule,
     FeedModule,
     AppRoutingModule,
     HttpClientModule,
@@ -30,7 +33,7 @@ import { FeedModule } from './feed/feed.module';
     StoreModule.forRoot({ post: PostReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
-  providers: [PostService],
+  providers: [PostService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
