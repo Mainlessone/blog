@@ -28,8 +28,16 @@ export class AuthService {
     localStorage.setItem('token', token);
   }
 
+  removeToken(): void {
+    localStorage.removeItem('token');
+  }
+
   logOut(): void {
     localStorage.removeItem('token');
+  }
+
+  checkTokenInDb(token: string): Observable<any> {
+    return this.http.post(`http://localhost:3000/auth/checkToken`, { token });
   }
 
 }

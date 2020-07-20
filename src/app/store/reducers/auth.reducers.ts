@@ -5,6 +5,7 @@ import { AuthActionTypes, AuthActions } from '../actions/auth.actions';
 const initialState: IAuthState = {
   isAuthenticated: false,
   token: null,
+  uId: null,
   error: null,
 }
 
@@ -14,8 +15,8 @@ export const AuthReducer = (state: IAuthState = initialState, action: AuthAction
       return { ...state, isAuthenticated: false, error: null };
     case AuthActionTypes.LOGIN_SUCCESS:
       return {
-        ...state, isAuthenticated: true, token: action.payload,
-        error: null
+        ...state, isAuthenticated: true, token: action.payload.token,
+        uId: action.payload.uId, error: null
       };
     case AuthActionTypes.LOGIN_FAILURE:
       return {

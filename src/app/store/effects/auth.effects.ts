@@ -23,7 +23,7 @@ export class AuthEffects {
   LogInSuccess: Observable<any> = this.actions$.pipe(
     ofType<LogInSuccessAction>(AuthActionTypes.LOGIN_SUCCESS),
     tap((user) => {
-      this.authService.setToken(user.payload);
+      this.authService.setToken(user.payload.token);
       this.router.navigateByUrl('/feed');
     })
   );
@@ -31,11 +31,22 @@ export class AuthEffects {
   @Effect()
   CheckLogin: Observable<any> = this.actions$.pipe(
     ofType<CheckLoginAction>(AuthActionTypes.CHECK_LOGIN),
-    map(_ => {
+    mergeMap(action => {
       const token = this.authService.getToken();
-      if (token) return new LogInSuccessAction(token);
-      else return new LogInFailureAction('Not logged In')
-    })
+      if (token) return this.authService.checkTokenInDb(token).pipe(
+        map(res => {
+          if (res) return new LogInSuccessAction(res);
+          else {
+            this.authService.removeToken();
+            return of(new LogInFailureAction(res));
+          }
+        }),
+        catchError(error => of(new LogOutAction())
+        )
+      )
+      else return of(new LogInFailureAction(null));
+    }
+    )
   )
 
   @Effect({ dispatch: false })
