@@ -41,8 +41,10 @@ export class AuthEffects {
             return of(new LogInFailureAction(res));
           }
         }),
-        catchError(error => of(new LogOutAction())
-        )
+        catchError(error => {
+          this.router.navigate(['/signIn']);
+          return of(new LogOutAction());
+        })
       )
       else return of(new LogInFailureAction(null));
     }

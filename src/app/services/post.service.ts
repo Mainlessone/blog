@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IPost } from '../feed/models/post.interface';
 
@@ -20,8 +20,11 @@ export class PostService {
     return this.http.get<IPost>(`${this.url}/post/${_id}`);
   }
 
-  addPost(postDto: IPost): Observable<IPost> {
-    return this.http.post<IPost>(`${this.url}/post`, postDto);
+  addPost(postDto: IPost, token: string): Observable<IPost> {
+    const myHeaders = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post<IPost>(`${this.url}/post`, postDto, {
+      headers: myHeaders
+    });
   }
 
   editPost(_id: string, editedPostDto: IPost): Observable<IPost> {

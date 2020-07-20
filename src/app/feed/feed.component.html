@@ -1,15 +1,15 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-9">
+    <div class="col-{{feedsCols}}">
       <h2>Most Recent</h2>
 
-      <mat-grid-list gutterSize="3em" [cols]="breakpoint">
+      <mat-grid-list gutterSize="5vh" rowHeight="{{feedRowHeight}}vh" [cols]="breakpoint" (window:resize)="onResize()">
         <mat-grid-tile *ngFor="let post of postItems$ | async">
           <mat-card>
             <img mat-card-image class="mat-card-image" src="{{post.photo}}"><img>
             <mat-card-title>{{post.title}}</mat-card-title>
             <mat-card-subtitle>{{post.description}}</mat-card-subtitle>
-            <mat-card-actions>
+            <mat-card-actions *ngIf="feedRowHeight >= 80">
               <div class="row">
                 <div class="col-sm">{{post.dateOfCreation | date }}</div> |
                 <div class="col-sm">{{post.tag}}</div> |
@@ -26,7 +26,14 @@
 
     </div>
     <div class="col-3 additional">
-      <h2>Recently Viewed</h2>
+      <div class="row">
+        <div class="row-6">
+          <h2>Popular posts</h2>
+        </div>
+        <div class="row-6">
+          <h2>Recently Viewed</h2>
+        </div>
+      </div>
     </div>
   </div>
 </div>

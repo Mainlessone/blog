@@ -1,15 +1,14 @@
 import { IUser } from './user.interface';
 
 export interface IPost {
-  readonly author: IUser;
-  readonly photo: string;
-  readonly title: string;
-  readonly description: string;
-  readonly body: string;
-  readonly dateOfCreation: number;
-  readonly tag?: string;
-  readonly isEdited?: boolean;
-  readonly dateOfEdit?: number;
-  readonly viewOfPost?: number;
-  readonly _id?: string;
+  author: IUser | string;
+  photo: string;
+  title: string;
+  description: string;
+  article: string;
+  dateOfCreation?: number;
+  tag?: string;
+  isEdited?: boolean;
+  dateOfEdit?: number;
+  _id?: string;
 }

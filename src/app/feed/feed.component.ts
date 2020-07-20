@@ -17,16 +17,28 @@ export class FeedComponent implements OnInit {
   error$: Observable<Error>;
 
   breakpoint: number = 2;
+  feedsCols: number = 9;
+  feedRowHeight: number = 80;
 
   constructor(private store$: Store<AppState>) {
   }
 
   ngOnInit(): void {
+    this.breakpoint = (window.innerWidth <= 500) ? 1 : 2;
+    this.feedsCols = (window.innerWidth <= 500) ? 12 : 9;
+    this.feedRowHeight = (window.innerWidth <= 1215) ? 65 : 80;
+
     this.postItems$ = this.store$.select(store => store.post.posts);
     this.loading$ = this.store$.select(store => store.post.loading);
     this.error$ = this.store$.select(store => store.post.error);
 
     this.store$.dispatch(new LoadPostsAction());
+  }
+
+  onResize(): void {
+    this.breakpoint = (window.innerWidth <= 500) ? 1 : 2;
+    this.feedsCols = (window.innerWidth <= 500) ? 12 : 9;
+    this.feedRowHeight = (window.innerWidth <= 1210) ? 65 : 80;
   }
 
 }

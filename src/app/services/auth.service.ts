@@ -20,6 +20,10 @@ export class AuthService {
     return this.http.post<IUser>(`${this.url}/signUp`, userDto);
   }
 
+  checkTokenInDb(token: string): Observable<any> {
+    return this.http.post(`${this.url}/checkToken`, { token });
+  }
+
   getToken(): string {
     return localStorage.getItem('token');
   }
@@ -36,8 +40,6 @@ export class AuthService {
     localStorage.removeItem('token');
   }
 
-  checkTokenInDb(token: string): Observable<any> {
-    return this.http.post(`http://localhost:3000/auth/checkToken`, { token });
-  }
+
 
 }

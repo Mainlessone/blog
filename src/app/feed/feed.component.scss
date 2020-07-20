@@ -2,18 +2,48 @@
   .additional {
     visibility: hidden;
   }
+
 }
+
+@media screen and (max-width: 760px) {
+
+  mat-grid-list {
+    margin-top: 5vh;
+    h2 {
+      font-size: 2.2vh;
+    }
+
+    .mat-card {
+      min-width: 80vw;
+      min-height: 90vh;
+      font-size: 2vh;
+
+      img.mat-card-image {
+        min-height: 40vh;
+      }
+
+      mat-card-footer {
+        button {
+          min-width: 30vh;
+          margin: 0;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+
 
 .container-fluid {
   background-color: rgb(243, 243, 253);
   min-height: 100vh;
 
     mat-grid-list {
-      margin-top: 5vh;
       margin-bottom: 5vh;
 
       mat-card{
-        margin: 0 0 0 0;
+        margin: 0;
         display: flex;
         flex-direction: column;
         width: 22vw;
@@ -23,7 +53,7 @@
         z-index: 999;
 
         img.mat-card-image {
-          height: 26vh;
+          max-height: 26vh;
         }
 
         mat-card-title {

@@ -27,7 +27,7 @@ export const PostReducer = (state: IPostState = initialState, action: PostAction
     case PostActionTypes.ADD_POST:
       return { ...state, loading: true };
     case PostActionTypes.ADD_POST_SUCCESS:
-      return { ...state, posts: action.payload, loading: false };
+      return { ...state, posts: [...state.posts, action.payload], loading: false };
     case PostActionTypes.ADD_POST_FAILURE:
       return { ...state, error: action.payload, loading: false };
 

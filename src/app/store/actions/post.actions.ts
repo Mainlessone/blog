@@ -67,13 +67,14 @@ export class LoadPostFailureAction implements Action {
 export class AddPostAction implements Action {
   readonly type = PostActionTypes.ADD_POST;
 
-  constructor(public payload: IPost) { }
+  constructor(public payload: any) { }
 }
 
 export class AddPostSuccessAction implements Action {
   readonly type = PostActionTypes.ADD_POST_SUCCESS;
 
-  constructor(public payload: IPost) { }
+  constructor(public payload: any) { console.log(this.payload) }
+
 }
 
 export class AddPostFailureAction implements Action {

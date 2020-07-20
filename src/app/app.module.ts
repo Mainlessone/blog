@@ -20,6 +20,7 @@ import { AuthEffects } from './store/effects/auth.effects';
 import { AuthReducer } from './store/reducers/auth.reducers';
 import { SignUpEffects } from './store/effects/signup.effects';
 import { SignUpReducer } from './store/reducers/signup.reducers';
+import { CreateEditModule } from './create-edit/create-edit.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SignUpReducer } from './store/reducers/signup.reducers';
     FeedModule,
     AppRoutingModule,
     HttpClientModule,
+    CreateEditModule,
     EffectsModule.forRoot([PostEffects, AuthEffects, SignUpEffects]),
     StoreModule.forRoot({ post: PostReducer, auth: AuthReducer, signUp: SignUpReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })

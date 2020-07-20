@@ -1,1 +1,23 @@
-<p>create works!</p>
+<div class="container-fluid">
+
+  <div class="container">
+    <div id="logbox">
+      <form id="signup">
+        <h1>Post</h1>
+        <input name="photo_url" type="photo url" placeholder="photo url" class="input pass"
+          [(ngModel)]="createPostDto.photo" />
+        <div *ngIf="createPostDto.photo">
+          <img src="{{createPostDto.photo}}" alt="">
+        </div>
+        <input name="title" type="text" placeholder="title" class="input pass" [(ngModel)]="createPostDto.title">
+        <textarea name="desciption " class="input pass" placeholder="desciption"
+          [(ngModel)]="createPostDto.description"></textarea>
+        <textarea name="article" class="input pass" placeholder="article"
+          [(ngModel)]="createPostDto.article"></textarea>
+        <input name="tag" type="section" placeholder="section" class="input pass" [(ngModel)]="createPostDto.tag" />
+        <input type="submit" value="Post" class="inputButton" (click)="createPost()" />
+      </form>
+    </div>
+  </div>
+
+</div>
