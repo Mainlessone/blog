@@ -14,13 +14,15 @@ export const AuthReducer = (state: IAuthState = initialState, action: AuthAction
       return { ...state, isAuthenticated: false, error: null };
     case AuthActionTypes.LOGIN_SUCCESS:
       return {
-        ...state, isAuthenticated: true, token: action.payload.accessToken,
+        ...state, isAuthenticated: true, token: action.payload,
         error: null
       };
     case AuthActionTypes.LOGIN_FAILURE:
       return {
         ...state, isAuthenticated: false, error: action.payload
       };
+    case AuthActionTypes.CHECK_LOGIN:
+      return { ...state };
     case AuthActionTypes.LOGOUT:
       return initialState;
     default:

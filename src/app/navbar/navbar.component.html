@@ -8,10 +8,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="signIn">SignIn</a>
-        <a class="nav-item nav-link" routerLink="signUp">SignUp</a>
-        <a class="nav-item nav-link" routerLink="create">Post</a>
-        <a class="nav-item nav-link" (click)="logOut()">LogOut</a>
+        <ng-template #signIn>
+          <a class="nav-item nav-link" routerLink="signIn">SignIn</a>
+        </ng-template>
+        <ng-template #signUp>
+          <a class="nav-item nav-link" routerLink="signUp">SignUp</a>
+        </ng-template>
+        <a class="nav-item nav-link" *ngIf="(isAuthenticated | async); else signIn" routerLink="create">Post</a>
+        <a class="nav-item nav-link" *ngIf="(isAuthenticated | async); else signUp" (click)="logOut()">LogOut</a>
       </div>
     </div>
   </div>

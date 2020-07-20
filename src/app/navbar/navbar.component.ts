@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/models/app-state.interface';
 import { LogOutAction } from '../store/actions/auth.actions';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -11,9 +12,13 @@ import { LogOutAction } from '../store/actions/auth.actions';
 })
 export class NavbarComponent implements OnInit {
 
+  isAuthenticated: Observable<boolean> = of(false);
+  errorMessage: string | null;
+
   constructor(private authService: AuthService, private store$: Store<AppState>) { }
 
   ngOnInit(): void {
+    this.isAuthenticated = this.store$.select(store => store.auth.isAuthenticated);
   }
 
   logOut(): void {

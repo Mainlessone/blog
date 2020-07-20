@@ -20,7 +20,7 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signIn(event): void {
+  signIn(): void {
     if (this.signInDto.email && this.signInDto.password) this.store$.dispatch(new LogInAction(this.signInDto));
   }
 

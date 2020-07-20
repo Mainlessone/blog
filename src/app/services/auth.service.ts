@@ -20,8 +20,8 @@ export class AuthService {
     return this.http.post<IUser>(`${this.url}/signUp`, userDto);
   }
 
-  getToken(): void {
-    localStorage.getItem('token');
+  getToken(): string {
+    return localStorage.getItem('token');
   }
 
   setToken(token): void {

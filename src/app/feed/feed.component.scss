@@ -1,3 +1,9 @@
+@media screen and (max-width: 760px) {
+  .additional {
+    visibility: hidden;
+  }
+}
+
 .container-fluid {
   background-color: rgb(243, 243, 253);
   min-height: 100vh;
@@ -58,6 +64,10 @@
 
   .additional {
     background-color: white;
+
+    h2 {
+      text-align: center;
+    }
   }
 
 
