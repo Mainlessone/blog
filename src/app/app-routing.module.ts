@@ -6,15 +6,17 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { CreateComponent } from './create-edit/create/create.component';
 import { EditComponent } from './create-edit/edit/edit.component';
 import { AuthGuard } from './guards/auth.guard';
+import { PostComponent } from './post/post.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/feed', pathMatch: 'full' },
   { path: 'feed', component: FeedComponent },
+  { path: 'post/:id', component: PostComponent },
   { path: 'signUp', component: SignupComponent },
   { path: 'signIn', component: SigninComponent },
   { path: 'create', component: CreateComponent, canActivate: [AuthGuard] },
-  { path: 'edit', component: EditComponent, canActivate: [AuthGuard] },
+  { path: 'edit/:id', component: EditComponent },
   { path: '**', redirectTo: '/feed', pathMatch: 'full' }
 ];
 

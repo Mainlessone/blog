@@ -24,7 +24,7 @@ export class AuthEffects {
     ofType<LogInSuccessAction>(AuthActionTypes.LOGIN_SUCCESS),
     tap((user) => {
       this.authService.setToken(user.payload.token);
-      this.router.navigateByUrl('/feed');
+      // this.router.navigateByUrl('/feed');
     })
   );
 

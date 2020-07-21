@@ -3,16 +3,19 @@
   <div class="container">
     <div id="logbox">
       <form id="signup">
-        <h1>Post</h1>
-        <input name="photo_url" type="photo url" placeholder="photo url" class="input pass" />
-        <div>
-          <img src="" alt="">
+        <h1>Edit</h1>
+        <input name="photo_url" type="photo url" placeholder="photo url" class="input pass"
+          [(ngModel)]="editedPostDto.photo" />
+        <div *ngIf="editedPostDto.photo" class="image-wrapper">
+          <img src="{{editedPostDto.photo}}" class="photo-url" alt="">
         </div>
-        <input name="title" type="text" placeholder="title" class="input pass">
-        <textarea name="desciption " class="input pass" placeholder="desciption"></textarea>
-        <textarea name="article" class="input pass" placeholder="article"></textarea>
-        <input name="tag" type="section" placeholder="section" class="input pass" />
-        <input type="submit" value="Post" class="inputButton" />
+        <input name="title" type="text" placeholder="title" class="input pass" [(ngModel)]="editedPostDto.title">
+        <textarea name="desciption " class="input pass" placeholder="desciption"
+          [(ngModel)]="editedPostDto.description"></textarea>
+        <textarea name="article" class="input pass" placeholder="article"
+          [(ngModel)]="editedPostDto.article"></textarea>
+        <input name="tag" type="section" placeholder="section" class="input pass" [(ngModel)]="editedPostDto.tag" />
+        <input type="submit" value="Post" class="inputButton" (click)="editPost()" />
       </form>
     </div>
   </div>

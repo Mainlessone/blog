@@ -4,6 +4,7 @@ import { IPost } from './models/post.interface';
 import { Store } from '@ngrx/store';
 import { LoadPostsAction } from '../store/actions/post.actions';
 import { AppState } from '../store/models/app-state.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feed',
@@ -20,7 +21,7 @@ export class FeedComponent implements OnInit {
   feedsCols: number = 9;
   feedRowHeight: number = 80;
 
-  constructor(private store$: Store<AppState>) {
+  constructor(private store$: Store<AppState>, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -39,6 +40,10 @@ export class FeedComponent implements OnInit {
     this.breakpoint = (window.innerWidth <= 500) ? 1 : 2;
     this.feedsCols = (window.innerWidth <= 500) ? 12 : 9;
     this.feedRowHeight = (window.innerWidth <= 1210) ? 65 : 80;
+  }
+
+  continueReading(_id: string): void {
+    this.router.navigate([`/post/${_id}`]);
   }
 
 }

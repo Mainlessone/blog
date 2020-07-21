@@ -18,9 +18,9 @@ export const PostReducer = (state: IPostState = initialState, action: PostAction
       return { ...state, error: action.payload, loading: false };
 
     case PostActionTypes.LOAD_POST:
-      return { ...state, loading: true };
+      return { ...state, posts: [], loading: true };
     case PostActionTypes.LOAD_POST_SUCCESS:
-      return { ...state, posts: action.payload, loading: false }
+      return { ...state, posts: [action.payload], loading: false }
     case PostActionTypes.LOAD_POST_FAILURE:
       return { ...state, error: action.payload, loading: false };
 
@@ -35,8 +35,8 @@ export const PostReducer = (state: IPostState = initialState, action: PostAction
       return { ...state, loading: true };
     case PostActionTypes.EDIT_POST_SUCCESS:
       return {
-        ...state, posts: state.posts.map(post => post._id === action._id ? {
-          ...post, post: action.payload
+        ...state, posts: state.posts.map(post => post._id === action.payload._id ? {
+          ...post, post: action.payload.editedPostDto
         } : post), loading: false
       };
     case PostActionTypes.EDIT_POST_FAILURE:

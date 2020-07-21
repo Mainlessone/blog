@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <mat-card>
+    <mat-card-title>{{post?.title}}</mat-card-title>
+    <div class="image-wrapper">
+      <img mat-card-image class="mat-card-image" src="{{post?.photo}}"><img>
+    </div>
+    <mat-card-content>
+      {{post?.article}}
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="row">
+        <div class="col-sm">{{post?.dateOfCreation | date }}</div> |
+        <div class="col-sm">{{post?.tag}}</div> |
+        <div class="col-sm">{{post?.author?.nickName}}</div>
+      </div>
+    </mat-card-actions>
+    <mat-card-footer *ngIf="userId == post?.author?._id">
+      <div class="row">
+        <div class="row-6">
+          <button (click)="editPost()">Edit</button>
+        </div>
+        <div class="row-6">
+          <button (click)="deletePost()">Delete</button>
+        </div>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>

@@ -41,6 +41,7 @@
     font-family: "Open Sans", Helvetica, sans-serif;
   }
 
+
   .input {
     width: 75%;
     min-height: 50px;
@@ -89,5 +90,18 @@
   .nav-link {
     color: rgb(233, 91, 91);
   }
+
+  .image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .photo-url {
+      max-width: 20vw;
+      max-height: 20vh;;
+    }
+  }
+
+
 
 }

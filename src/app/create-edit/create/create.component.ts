@@ -32,7 +32,7 @@ export class CreateComponent implements OnInit {
       this.createPostDto.author = authStore.uId;
       this.token = authStore.token;
     });
-    this.store$.dispatch(new AddPostAction({ createPostDto: this.createPostDto, token: this.token }));
+    this.store$.dispatch(new AddPostAction(this.createPostDto));
   }
 
 
