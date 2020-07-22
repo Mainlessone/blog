@@ -23,7 +23,11 @@ export const AuthReducer = (state: IAuthState = initialState, action: AuthAction
         ...state, isAuthenticated: false, error: action.payload
       };
     case AuthActionTypes.CHECK_LOGIN:
-      return { ...state };
+      return { ...state, isAuthenticated: false, loading: true };
+    case AuthActionTypes.CHECK_LOGIN_SUCCESS:
+      return { ...state, token: action.payload.token, uId: action.payload.uId, isAuthenticated: true, loading: false };
+    case AuthActionTypes.CHECK_LOGIN_FAILURE:
+      return { ...state, isAuthenticated: false, loading: false };
     case AuthActionTypes.LOGOUT:
       return initialState;
     default:

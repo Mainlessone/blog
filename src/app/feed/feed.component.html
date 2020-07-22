@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-{{feedsCols}}">
+    <div class="col-{{feedsCols}} main">
       <h2>Most Recent</h2>
 
       <mat-grid-list gutterSize="5vh" rowHeight="{{feedRowHeight}}vh" [cols]="breakpoint" (window:resize)="onResize()">
@@ -26,13 +26,12 @@
 
     </div>
     <div class="col-3 additional">
-      <div class="row">
-        <div class="row-6">
-          <h2>Popular posts</h2>
-        </div>
-        <div class="row-6">
-          <h2>Recently Viewed</h2>
-        </div>
+      <div class="row-6">
+        <h2>Recently Viewed</h2>
+        <mat-card *ngIf="lastPostThatUserSaw">
+          <img mat-card-image class="mat-card-image" src="{{lastPostThatUserSaw?.photo}}"><img>
+          <mat-card-title>{{lastPostThatUserSaw?.title}}</mat-card-title>
+        </mat-card>
       </div>
     </div>
   </div>

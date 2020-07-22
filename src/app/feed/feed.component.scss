@@ -1,41 +1,43 @@
 @media screen and (max-width: 760px) {
-  .additional {
-    visibility: hidden;
-  }
+  .container-fluid {
+    padding: auto;
 
-}
-
-@media screen and (max-width: 760px) {
-
-  mat-grid-list {
-    margin-top: 5vh;
-    h2 {
-      font-size: 2.2vh;
-    }
-
-    .mat-card {
-      min-width: 80vw;
-      min-height: 90vh;
-      font-size: 2vh;
-
-      img.mat-card-image {
-        min-height: 40vh;
+    mat-grid-list {
+      margin-top: 5vh;
+      h2 {
+        font-size: 2.2vh;
       }
 
-      mat-card-footer {
-        button {
-          min-width: 30vh;
-          margin: 0;
-          position: relative;
+      .mat-card {
+        min-width: 80vw;
+        min-height: 90vh;
+        font-size: 2vh;
+
+        img.mat-card-image {
+          min-height: 40vh;
+        }
+
+        mat-card-footer {
+          button {
+            min-width: 30vh;
+            margin: 0;
+            position: relative;
+          }
         }
       }
     }
+
+    .additional {
+      visibility: hidden;
+    }
   }
+
 }
 
 
 
 .container-fluid {
+  padding-right: 3.5vh;
   background-color: rgb(243, 243, 253);
   min-height: 100vh;
 
@@ -47,23 +49,25 @@
         display: flex;
         flex-direction: column;
         width: 22vw;
-        height: 65vh;
+        height: 68vh;
         background-color: white;
         box-shadow: 0 1vh 1vh -2px rgba(116, 114, 114, 0.2);
         z-index: 999;
 
         img.mat-card-image {
-          max-height: 26vh;
+          height: 25vh;
         }
 
         mat-card-title {
           text-align: center;
           font-weight: bold;
           font-size: 2.7vh;
+          min-height: 10vh;
         }
 
         mat-card-subtitle {
           text-align: center;
+          min-height: 13vh;
         }
 
         mat-card-actions {
@@ -84,18 +88,32 @@
             color: white;
             border-radius: 0;
             border: none;
-            position: absolute;
-            margin-top: 3vh;
+            box-shadow: 0 1vh 1vh -2px rgba(116, 114, 114, 0.2);
+            z-index:999;
           }
         }
       }
 
   }
 
-  .additional {
-    background-color: white;
+  .main {
+    margin-top: 2vh;
 
     h2 {
+      margin: 2vh 2vh 0 2vh;
+    }
+  }
+
+  .additional {
+    background-color: white;
+    margin-top: 2vh;
+    height: 50vh;
+    box-shadow: 0 1vh 1vh -2px rgba(116, 114, 114, 0.2);
+    z-index:999;
+
+
+    h2 {
+      margin: 2vh;
       text-align: center;
     }
   }

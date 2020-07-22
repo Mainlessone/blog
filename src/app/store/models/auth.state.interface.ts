@@ -1,3 +1,4 @@
+import { IPost } from 'src/app/feed/models/post.interface';
 
 export interface IAuthState {
   isAuthenticated: boolean;

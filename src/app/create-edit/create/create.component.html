@@ -7,7 +7,10 @@
         <input name="photo_url" type="photo url" placeholder="photo url" class="input pass"
           [(ngModel)]="createPostDto.photo" />
         <div *ngIf="createPostDto.photo">
-          <img src="{{createPostDto.photo}}" alt="">
+          <div class="image-wrapper">
+            <img src="{{createPostDto.photo}}" alt="">
+          </div>
+
         </div>
         <input name="title" type="text" placeholder="title" class="input pass" [(ngModel)]="createPostDto.title">
         <textarea name="desciption " class="input pass" placeholder="desciption"

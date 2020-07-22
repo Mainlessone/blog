@@ -1,3 +1,19 @@
+@media screen and (max-width: 760px) {
+  .container-fluid {
+    .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 5vh;
+
+      img.mat-card-image {
+        height: 45vh;
+        width: 70vw;
+      }
+    }
+  }
+}
+
 .container-fluid {
   background-color: rgb(243, 243, 253);
   min-height: 80vh;
@@ -7,8 +23,8 @@
 
   mat-card{
     margin: 5vh;
-    width: 50vw;
-    height: 100vh;
+    min-width: 50vw;
+    min-height: 100vh;
     background-color: white;
     box-shadow: 0 1vh 1vh -2px rgba(116, 114, 114, 0.2);
     z-index: 999;
@@ -38,6 +54,10 @@
       text-align: center;
     }
 
+    mat-card-content {
+      white-space: pre-wrap;
+    }
+
     mat-card-actions {
       text-align: center;
       border-top: 1px dashed black;
@@ -58,6 +78,8 @@
         border: none;
         margin-top: 3vh;
         margin: 1vh;
+        box-shadow: 0 1vh 1vh -2px rgba(116, 114, 114, 0.2);
+        z-index: 999;
       }
     }
   }

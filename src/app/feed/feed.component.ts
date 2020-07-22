@@ -17,6 +17,8 @@ export class FeedComponent implements OnInit {
   loading$: Observable<boolean>;
   error$: Observable<Error>;
 
+  lastPostThatUserSaw: IPost = JSON.parse(localStorage.getItem('viewed-post'));
+
   breakpoint: number = 2;
   feedsCols: number = 9;
   feedRowHeight: number = 80;

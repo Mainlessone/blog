@@ -28,7 +28,10 @@ export class PostComponent implements OnInit, OnDestroy {
       this.activatedRoute.params.subscribe(params => this.postId = params['id'])
     );
     this.subscriptions$.add(
-      this.postService.getPost(this.postId).subscribe(post => this.post = post)
+      this.postService.getPost(this.postId).subscribe(post => {
+        localStorage.setItem('viewed-post', JSON.stringify(post));
+        this.post = post;
+      })
     );
 
     this.subscriptions$.add(
@@ -46,6 +49,7 @@ export class PostComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+
     this.subscriptions$.unsubscribe();
   }
 
